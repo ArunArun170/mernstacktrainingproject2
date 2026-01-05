@@ -13,7 +13,8 @@ function App() {
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('All Status');
 
-  const API_URL = 'http://localhost:5000/api/contacts';
+  // UPDATED: Point to your Live Render URL
+  const API_URL = 'https://contact-manager-m2qe.onrender.com/api/contacts';
 
   useEffect(() => { fetchContacts(); }, []);
 
@@ -35,13 +36,17 @@ function App() {
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`${API_URL}/${id}`);
-    fetchContacts();
+    try {
+      await axios.delete(`${API_URL}/${id}`);
+      fetchContacts();
+    } catch (err) { console.error("Delete error:", err); }
   };
 
   const handleUpdateStatus = async (id, newStatus) => {
-    await axios.put(`${API_URL}/${id}`, { status: newStatus });
-    fetchContacts();
+    try {
+      await axios.put(`${API_URL}/${id}`, { status: newStatus });
+      fetchContacts();
+    } catch (err) { console.error("Update error:", err); }
   };
 
   const filtered = contacts.filter(c => 
@@ -81,6 +86,7 @@ function App() {
           setFormData={setFormData} 
           onAdd={handleAdd} 
         />
+        {/* The content-area you wanted to be scrollable */}
         <div className="content-area">
           <ContactList 
             contacts={filtered} 
