@@ -1,0 +1,353 @@
+/* src/App.css */
+body {
+  background-color: white; /* Exact light blue background */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: block;
+}
+
+.page-wrapper {
+  padding: 40px;
+  width: 1400px;
+}
+
+/* Header: Left text, Right search controls */
+.top-header {
+  display: flex;
+  gap: 188px;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.top-header h1 {
+  color: #002d72; /* Dark blue title */
+  margin: 0;
+  font-size: 28px;
+}
+
+.header-right {
+  display: flex;
+  gap: 30px;
+  width: 66%; /* Occupies most of the right side */
+}
+
+.status-all-dropdown {
+  /*background-color: #002d72;*/
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 21px;
+  cursor: pointer;
+
+  background:linear-gradient(#4A00E0,#8E2DE2);
+}
+
+
+
+.search-field {
+  flex: 1; /* Search bar stretches to fill space */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 21px;
+  outline: none;
+
+  background-color: rgb(222, 218, 218);
+  color: rgb(46, 45, 45);
+}
+
+/* Main Layout: Sidebar vs Content */
+.main-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 50px;
+}
+
+/* src/App.css updates */
+
+.contact-form-container input, 
+.contact-form-container select {
+  letter-spacing: 2px;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 21px; /* Keeping your requested border radius */
+  box-sizing: border-box;
+  outline: none;
+  background-color: #e9e7e7;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color change */
+}
+
+
+
+/* Default Placeholder color for dark background */
+.contact-form-container input::placeholder {
+  color: #6c6868;
+}
+
+/* Ensure text is visible when box turns blue */
+.contact-form-container input:focus {
+  box-shadow: 0 0 2px rgba(201, 198, 202, 0.5); 
+  color: black;
+}
+.add-contact-btn {
+  width: 100%;
+  /*background-color: #002d72;*/
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: capitalize;
+  background:linear-gradient(#4A00E0,#8E2DE2);
+}
+
+/* Right Display Area */
+.content-area {
+  /* Semi-transparent "glass" container seen in the image */
+  background-color: rgba(255, 255, 255, 0.4); 
+  border-radius: 8px;
+  min-height: 450px;
+  padding: 30px;
+}
+
+/* Contact Card Styling */
+.contact-item-card {
+  background: #f4f3f3;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-header h3 {
+  color: #002d72;
+  margin: 0;
+}
+
+.comp-tag {
+  background-color: #eef3ff;
+  color: #002d72;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.card-body {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-footer select {
+  border: 1px solid #ddd;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.del-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Empty State */
+.no-data-view {
+  text-align: center;
+  padding-top: 80px;
+}
+
+.no-data-view img {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.no-data-view p {
+  color: #002d72;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+
+
+
+
+
+
+
+/* src/App.css */
+
+/* 1. Default State: Dark background as per your image */
+.dynamic-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 21px; /* Keeping your requested radius */
+  box-sizing: border-box;
+  outline: none;
+  background-color: #aaaaaa; /* Dark grey */
+  background-color: white;
+  color: white;
+  transition: background-color 0.3s ease;
+  
+}
+
+
+.dynamic-input::placeholder {
+  color: #bbbbbb;
+}
+
+/* 2. Entering Text State: Keep it dark while typing */
+.dynamic-input:focus {
+  background-color: #fff8f8; 
+  color: white;
+}
+
+/* 3. "Go to another box" State: 
+   Change to light blue only if NOT empty AND NOT focused */
+.dynamic-input:not(:placeholder-shown):not(:focus) {
+  background-color: #e8f0fe; /* Light blue */
+  color: #002d72; /* Dark blue text */
+}
+
+/* Special handling for Select (since it doesn't have a placeholder) */
+select.dynamic-input:not(:focus) {
+    background-color: #e8f0fe;
+    color: #002d72;
+
+   
+}
+
+.add-contact-btn {
+  width: 100%;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(#4A00E0, #8E2DE2); /* Your requested gradient */
+}
+
+
+
+
+
+
+
+
+
+
+/* Container for the cards */
+.list-wrapper.grid-two-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates two equal columns */
+  gap: 20px; /* Space between cards */
+  padding: 10px;
+}
+
+/* Responsive: Stack cards on small screens */
+@media (max-width: 768px) {
+  .list-wrapper.grid-two-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card Body Styles */
+.card-body {
+  padding: 10px 0;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: #6366f1; /* Match your primary purple/blue */
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 5px 0;
+  text-decoration: underline;
+}
+
+.extra-details {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+
+
+/* The main container on the right */
+.content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 0px;
+  padding-left: 0px;
+}
+
+/* 2-Column Grid Alignment */
+.list-wrapper.grid-two-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* Centering the Read More button at the bottom of the list */
+.read-more-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  /*padding-bottom: 20px;*/
+}
+
+.read-more-btn {
+  background-color: #6a11cb; /* Using your purple theme */
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background-color: #2575fc;
+}
+
+/* Ensure cards look uniform in the grid */
+.contact-item-card {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+
+
